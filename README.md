@@ -12,9 +12,9 @@ npm start
 ```
 
 ## Screenshots
-!["Main Page"]()
+!["Main Page"](https://github.com/YuliiaMatich/Food-Ordering-App/blob/main/public/docs/Main%20page.png)
 
-!["Cart"]()
+!["Cart"](https://github.com/YuliiaMatich/Food-Ordering-App/blob/main/public/docs/Cart.png)
 
 
 ## Dependencies
