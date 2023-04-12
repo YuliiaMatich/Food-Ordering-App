@@ -9,7 +9,7 @@ import MealItem from "./MealItem/MealItem";
 const AvailableMeals = () => {
 
   const [meals, setMeals] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const fetchMealsHandler = useCallback (async () => {
@@ -39,6 +39,7 @@ const AvailableMeals = () => {
 
       setMeals(loadedMeals);
     } catch (error) {
+      setIsLoading(false);
       setError(error.message);
     }
     setIsLoading(false);
@@ -49,6 +50,18 @@ const AvailableMeals = () => {
     fetchMealsHandler();
   }, [fetchMealsHandler]);
 
+
+  if (isLoading) {
+    return <section className={classes.MealsLoading}>Loading...</section>
+  }
+
+  if (error) {
+    return (
+      <section className={classes.MealError}>
+        <p>{error}</p>
+      </section>
+    )
+  }
   const mealList = meals.map((meal) => (
     <MealItem
       meal={meal}
